@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="dark-mode">
 
     <header class="topbar">
         <div class="brand">
@@ -16,9 +16,24 @@
             <span>JDEN Catálogo</span>
         </div>
 
-        <a class="top-whatsapp" href="https://wa.me/+50689646176" target="_blank">
-            <img src="img/wm-logo.jpg" alt="WhatsApp">
-        </a>
+        <div class="top-actions">
+            <select id="filterSelect" class="filter-select">
+                <option value="all">Vista completa</option>
+                <option value="tequila">Tequila</option>
+                <option value="whisky">Whisky</option>
+                <option value="crema">Crema</option>
+                <option value="licor">Licor</option>
+                <option value="ron">Ron</option>
+            </select>
+
+            <button id="themeToggle" class="theme-toggle" title="Cambiar tema">
+                ☀️
+            </button>
+
+            <a class="top-whatsapp" href="https://wa.me/+50689646176" target="_blank">
+                <img src="img/wm-logo.jpg" alt="WhatsApp">
+            </a>
+        </div>
     </header>
 
     <section class="banner">
@@ -34,15 +49,6 @@
                     Observa las diferentes vistas para filtrar las bebidas según tu preferencia.
                 </p>
             </div>
-        </section>
-
-        <section class="filter-card">
-            <button onclick="filterProducts('all')">Vista completa</button>
-            <button onclick="filterProducts('tequila')">Tequila</button>
-            <button onclick="filterProducts('whisky')">Whisky</button>
-            <button onclick="filterProducts('crema')">Crema</button>
-            <button onclick="filterProducts('licor')">Licor</button>
-            <button onclick="filterProducts('ron')">Ron</button>
         </section>
 
         <section class="grid" id="productGrid"></section>

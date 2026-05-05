@@ -1,4 +1,6 @@
 const grid = document.getElementById("productGrid");
+const filterSelect = document.getElementById("filterSelect");
+const themeToggle = document.getElementById("themeToggle");
 
 function mostrarProductos(lista) {
     grid.innerHTML = "";
@@ -8,11 +10,17 @@ function mostrarProductos(lista) {
         card.className = `card ${p.tipo.toLowerCase()}`;
 
         card.innerHTML = `
-            <img src="img/${p.imagen}" alt="${p.producto}">
-            <h3>${p.producto}</h3>
-            <p class="tag">${p.tipo}</p>
-            <p>${p.marca}</p>
-            <span>₡${p.precio.toLocaleString("es-CR")}</span>
+            <div class="image-area">
+                <div class="image-bg"></div>
+                <img src="img/${p.imagen}" alt="${p.producto}">
+            </div>
+
+            <div class="card-content">
+                <h3>${p.producto}</h3>
+                <p class="tag">${p.tipo}</p>
+                <p class="brand-name">${p.marca}</p>
+                <span>₡${p.precio.toLocaleString("es-CR")}</span>
+            </div>
         `;
 
         grid.appendChild(card);
@@ -20,7 +28,9 @@ function mostrarProductos(lista) {
 }
 
 function filterProducts(tipo) {
-    setActiveButton(tipo);
+    if (filterSelect) {
+        filterSelect.value = tipo;
+    }
 
     if (tipo === "all") {
         mostrarProductos(productos);
@@ -34,22 +44,17 @@ function filterProducts(tipo) {
     mostrarProductos(filtrados);
 }
 
-function setActiveButton(tipo) {
-    const buttons = document.querySelectorAll(".filter-card button");
+filterSelect.addEventListener("change", function () {
+    filterProducts(this.value);
+});
 
-    buttons.forEach(btn => {
-        btn.classList.remove("active");
+themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+    document.body.classList.toggle("dark-mode");
 
-        const texto = btn.innerText.toLowerCase();
-
-        if (
-            texto.includes(tipo) ||
-            (tipo === "all" && texto.includes("vista completa"))
-        ) {
-            btn.classList.add("active");
-        }
-    });
-}
+    themeToggle.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️"
+        : "🌙";
+});
 
 mostrarProductos(productos);
-setActiveButton("all");
