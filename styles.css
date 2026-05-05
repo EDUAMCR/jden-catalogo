@@ -418,14 +418,85 @@ body {
     }
 
     .card-body {
-        grid-template-columns: 95px 1fr;
+        grid-template-columns: 1fr;
     }
 
     .card-image {
-        height: 110px;
+        margin: 0 auto;
+        width: 120px;
     }
 
     .card-image img {
         height: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 12px;
+    }
+
+    .brand {
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .top-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+    }
+
+    .filter-select {
+        width: 100%;
+        max-width: none;
+    }
+
+    .top-whatsapp {
+        width: 36px;
+        height: 36px;
+    }
+
+    .banner img {
+        height: 150px;
+    }
+
+    .container {
+        padding: 12px 10px 32px;
+    }
+
+    .info-card {
+        font-size: 14px;
+    }
+
+    .card-body {
+        grid-template-columns: 90px 1fr;
+        gap: 10px;
+    }
+
+    .card-image {
+        height: 105px;
+    }
+
+    .card-image img {
+        height: 95px;
+    }
+
+    .chips {
+        justify-content: center;
+    }
+
+    .chip {
+        font-size: 11px;
+        padding: 4px 9px;
+    }
+
+    .price {
+        font-size: 15px;
+        padding: 6px 14px;
     }
 }
