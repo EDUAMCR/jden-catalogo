@@ -28,7 +28,7 @@ const productos = [
         volumen: "750 ml",
         marca: "Don Julio",
         tipo: "Tequila",
-        precio: 30000,
+        precio: 38000,
         imagen: "don-julio-blanco-750ml.jpg"
     },
     {
@@ -36,7 +36,7 @@ const productos = [
         volumen: "750 ml",
         marca: "Don Julio",
         tipo: "Tequila",
-        precio: 38000,
+        precio: 30000,
         imagen: "don-julio-reposado-750ml.jpg"
     },
     {

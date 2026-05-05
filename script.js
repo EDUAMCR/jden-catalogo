@@ -1,6 +1,6 @@
 const grid = document.getElementById("productGrid");
 const filterSelect = document.getElementById("filterSelect");
-const themeToggle = document.getElementById("themeToggle");
+
 
 function mostrarProductos(lista) {
     grid.innerHTML = "";
@@ -10,18 +10,30 @@ function mostrarProductos(lista) {
         card.className = `card ${p.tipo.toLowerCase()}`;
 
         card.innerHTML = `
-            <div class="image-area">
-                <div class="image-bg"></div>
-                <img src="img/${p.imagen}" alt="${p.producto}">
+    <h3 class="card-title">${p.producto}</h3>
+
+    <div class="divider"></div>
+
+    <div class="card-body">
+        <div class="card-image">
+            <img src="img/${p.imagen}" alt="${p.producto}">
+        </div>
+
+        <div class="card-details">
+            <div class="chips">
+                <span class="chip">${p.tipo}</span>
+                <span class="chip">${p.marca}</span>
+                <span class="chip">${p.volumen}</span>
             </div>
 
-            <div class="card-content">
-                <h3>${p.producto}</h3>
-                <p class="tag">${p.tipo}</p>
-                <p class="brand-name">${p.marca}</p>
-                <span>₡${p.precio.toLocaleString("es-CR")}</span>
+            <div class="divider small"></div>
+
+            <div class="price-wrapper">
+                <span class="price">₡${p.precio.toLocaleString("es-CR")}</span>
             </div>
-        `;
+        </div>
+    </div>
+`;
 
         grid.appendChild(card);
     });
@@ -48,13 +60,5 @@ filterSelect.addEventListener("change", function () {
     filterProducts(this.value);
 });
 
-themeToggle.addEventListener("click", function () {
-    document.body.classList.toggle("light-mode");
-    document.body.classList.toggle("dark-mode");
-
-    themeToggle.textContent = document.body.classList.contains("dark-mode")
-        ? "☀️"
-        : "🌙";
-});
 
 mostrarProductos(productos);
